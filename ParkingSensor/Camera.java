@@ -1,14 +1,15 @@
 
-public class Camera e{
-	public enum Cam{
+public class Camera{
+	/*public enum Cam{
 		FrontCam,
 		BackCam,
 		BlindspotCam
-	}
-	
+	}*/
+
 	boolean isObstaclePresent;
 	public void detectObstacle(){
-		
 	}
-	
+
+
+
 }

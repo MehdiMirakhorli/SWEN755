@@ -1,11 +1,13 @@
 /**
- * 
+ *
  */
 
 /**
  * @author Silva & Pavithra
  *
  */
+package HeartBeat;
+import HeartBeat.*;
 import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,21 +21,21 @@ public class HeartbeatReceiver
 	int checkingTime;
 	int expireTime;
 	int lastUpdatedTime;
-	
+
 	public boolean checkAlive;
-	
+
 	public HeartbeatReceiver()
 	{
 		this.checkingInterval = 5000; // 1 second
 		this.expireTime = 10000;
 	}
-	
+
 	public HeartbeatReceiver( int checkingInterval, int expireTime)
 	{
 		this.checkingInterval = checkingInterval; // 1 second
 		this.expireTime = expireTime;
 	}
-	
+
 	//cjanged from a bool function to void
 	public void checkAlive()
 	{
@@ -43,7 +45,7 @@ public class HeartbeatReceiver
 		{
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
-			
+
 		}
 		else
 			System.out.println("HeartBeat");
@@ -80,26 +82,26 @@ public class HeartbeatReceiver
 		  };
 		  new javax.swing.Timer(delay, taskPerformer).start();
 		  */
-		
-		
+
+
 	}
-	
+
 	public boolean pitAPat()
 	{
 		//add code
 		this.updateTime();
 		return true;
 	}
-	
+
 	public int updateTime()
 	{
 		this.lastUpdatedTime = Integer.parseInt(new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp()));
 		return this.lastUpdatedTime;
 	}
-	
+
 	public static void main (String args[])
 	{
-		
+
 		//boolean isAlive;
 		//isAlive = checkAlive();
 	}

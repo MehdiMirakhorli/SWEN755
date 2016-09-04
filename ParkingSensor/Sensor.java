@@ -1,5 +1,5 @@
+import HeartBeat.*;
+public class Sensor extends HeartbeatSender{
 
-public class Sensor {
-	
 
 }
