@@ -20,37 +20,32 @@ public class HeartbeatReceiver
 	}
 	public void checkAlive()
 	{
-				System.out.println("In check alive");
-
-try {
+		System.out.println("In check alive");
+		try {
 			Thread.sleep(checkingInterval);
-		} catch (InterruptedException e) {
+			} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		this.checkingTime = System.currentTimeMillis();
-
 		if (this.checkingTime - this.lastUpdatedTime > this.expireTime)
 		{
 			System.out.println("beating");
-
 		}
 		else{
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
 		}
-
-	}
+	}//checkAlive
 	public boolean pitAPat()
 	{
 		System.out.println("pit a pat recieved");
 		this.updateTime();
 		return true;
-	}
+	}//pitAPat
 	public long updateTime()
 	{
 		this.lastUpdatedTime = System.currentTimeMillis();
 		System.out.println("update time : "+ this.lastUpdatedTime);
 		return this.lastUpdatedTime;
-
-	}
+	}//updateTime
 }
