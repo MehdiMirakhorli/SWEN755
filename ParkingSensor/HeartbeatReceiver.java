@@ -24,8 +24,8 @@ public class HeartbeatReceiver
 
 	public HeartbeatReceiver()
 	{
-		this.checkingInterval = 5000; // 1 second
-		this.expireTime = 20000;
+		this.checkingInterval = 1000; // 1 second
+		this.expireTime = 4000;
 	}
 
 	public HeartbeatReceiver( int checkingInterval, int expireTime)
