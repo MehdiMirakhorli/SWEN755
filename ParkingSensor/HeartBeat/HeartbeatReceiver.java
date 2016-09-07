@@ -1,56 +1,60 @@
-// @author Silva & Pavithra
-import java.text.SimpleDateFormat;
-import java.util.Timer;
-import java.util.TimerTask;
-public class HeartbeatReceiver
-{
-	int checkingInterval;
-	long checkingTime;
-	int expireTime;
-	long lastUpdatedTime;
-	public HeartbeatReceiver()
-	{
-		this.checkingInterval = 1000;
-		this.expireTime = 4000;
-	}
-	public HeartbeatReceiver( int checkingInterval, int expireTime)
-	{
-		this.checkingInterval = checkingInterval;
-		this.expireTime = expireTime;
-	}
-	public void checkAlive()
-	{
-				System.out.println("In check alive");
+import java.io.*;
+import java.net.*;
+public class Sensor extends Thread{
 
-try {
-			Thread.sleep(checkingInterval);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		this.checkingTime = System.currentTimeMillis();
+	/* int sensorID;
+	String sensorLocation;
+	int  periodicity; // checking intervals for sensor */
+	public static int heartbeatPort = 1234;
 
-		if (this.checkingTime - this.lastUpdatedTime > this.expireTime)
+	public String nameofsensor;
+	public Sensor(String name)
+	{
+		nameofsensor = name;
+	}
+	public static int randgen(int min, int max) {
+		    Random ran = new Random();
+		    int Num = ran.nextInt((max - min) + 1) + min;
+		    System.out.println("Random number is " + Num + "\n");
+		    return Num;
+	}
+	public void run()
+	{
+		Thread tSender = new Thread(new HeartbeatSender());
+		tSender.start();
+
+		//for synchronizing the sender and receiver, sockets can be used
+
+		try(ServerSocket ss = new ServerSocket(heartbeatPort,1);) // backlog value set to 1 (queue)
 		{
-			System.out.println("beating");
+			System.out.println("Inside sensor processing..");
 
+					int a = randgen(0,10);
+					while(a!=0)
+					{
+						try(Socket cs = ss.accept();
+							BufferedReader br = new BufferedReader(new InputStreamReader(cs.getInputStream()))
+						{
+							String sensorBeat;
+							while((sensorBeat = br.readLine()) != null)
+							{
+								System.out.println("\n" + "Sensor" + nameofsensor + "alive" + "\n");
+							a = randgen(0,10);
+						}}
+						catch (InterruptedException e)
+						{System.err.println(e.getMessage());
+					}
+			}
+		}//try
+		catch(IOException Ex1)
+		{
+			System.err.println(Ex1.getMessage());
 		}
-		else{
-			FaultMonitor FM = new FaultMonitor();
-			FM.echo();
+		finally
+		{
+			System.err.println("Bad application");
+			tSender.interrupt();
 		}
-
-	}
-	public boolean pitAPat()
-	{
-		System.out.println("pit a pat recieved");
-		this.updateTime();
-		return true;
-	}
-	public long updateTime()
-	{
-		this.lastUpdatedTime = System.currentTimeMillis();
-		System.out.println("update time : "+ this.lastUpdatedTime);
-		return this.lastUpdatedTime;
-
-	}
-}
+	
+}//run
+}//class

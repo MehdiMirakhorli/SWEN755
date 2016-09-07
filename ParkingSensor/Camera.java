@@ -1,4 +1,6 @@
-
+import java.net.*;
+import java.io.*;
+import HeartbeatSender;
 public class Camera{
 	/*public enum Cam{
 		FrontCam,
