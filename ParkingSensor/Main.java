@@ -11,10 +11,7 @@ public class Main {
 
 		HeartbeatSender HBS = new HeartbeatSender();
 		HeartbeatReceiver HBR  = new HeartbeatReceiver();
-
-		HBS.sendMessage();
-
-		HBR.checkAlive();
-
+		new Thread(() -> HBS.sendMessage()).start();
+    	new Thread(() -> HBR.checkAlive()).start();
 	}
 }

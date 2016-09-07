@@ -31,12 +31,14 @@ try {
 
 		if (this.checkingTime - this.lastUpdatedTime > this.expireTime)
 		{
+			System.out.println("beating");
 
+		}
+		else{
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
 		}
-		else
-			System.out.println("HeartBeat");
+
 	}
 	public boolean pitAPat()
 	{
