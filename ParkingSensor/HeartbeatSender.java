@@ -18,13 +18,26 @@ public class HeartbeatSender extends TimerTask implements Runnable{
 		this.sendingInterval = sendingInterval;
 	}
 
+	public static int randgen(int min, int max) {
+
+
+	    Random ran = new Random();
+
+	    int Num = ran.nextInt((max - min) + 1) + min;
+	    System.out.println("Random number is " + Num + "\n");
+
+	    return Num;
+}
 	public void sendMessage ()
 	{
-		this.run();
+			this.run();
+
+
 	}//send msg
 	public void run() {
 					Date now;
-					while(true)
+					int a = randgen(0,10);
+					while(a!=0)
 					{
 
 						try
@@ -34,6 +47,7 @@ public class HeartbeatSender extends TimerTask implements Runnable{
 							HBR.pitAPat();
 							now = new Date();
 							System.out.println("I am alive \n " + now);
+							a = randgen(0,10);
 						}
 						catch (InterruptedException e)
 						{}

@@ -20,11 +20,14 @@ public class HeartbeatReceiver
 	}
 	public void checkAlive()
 	{
-		System.out.println("hello");
+				System.out.println("In check alive");
+
+
 		this.checkingTime = System.currentTimeMillis();
+
 		if (this.checkingTime - this.lastUpdatedTime > this.expireTime)
 		{
-			System.out.println("hi");
+
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
 		}
@@ -42,5 +45,6 @@ public class HeartbeatReceiver
 		this.lastUpdatedTime = System.currentTimeMillis();
 		System.out.println("update time : "+ this.lastUpdatedTime);
 		return this.lastUpdatedTime;
+
 	}
 }
