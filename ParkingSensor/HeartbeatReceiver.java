@@ -22,7 +22,11 @@ public class HeartbeatReceiver
 	{
 				System.out.println("In check alive");
 
-
+try {
+			Thread.sleep(checkingInterval);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		this.checkingTime = System.currentTimeMillis();
 
 		if (this.checkingTime - this.lastUpdatedTime > this.expireTime)
