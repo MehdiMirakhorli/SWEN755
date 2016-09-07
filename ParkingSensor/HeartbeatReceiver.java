@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
-public class HeartbeatReceiver
+public class HeartbeatReceiver implements Runnable
 {
 	int checkingInterval;
 	long checkingTime;
@@ -49,4 +49,7 @@ public class HeartbeatReceiver
 		System.out.println("update time : "+ this.lastUpdatedTime);
 		return this.lastUpdatedTime;
 	}//updateTime
+
+	public void run()
+	{}
 }
