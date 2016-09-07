@@ -6,17 +6,13 @@ import java.util.TimerTask;
 import java.util.Date;
 import java.util.Timer;
 import java.util.*;
-//import java.text.SimpleDateFormat;
-//import com.sun.jmx.snmp.Timestamp;
 
-public class HeartbeatSender extends TimerTask{
+public class HeartbeatSender extends TimerTask implements Runnable{
 	int sendingInterval;
-	//
 	public HeartbeatSender()
 	{
-		this.sendingInterval = 1000; // 1 second
+		this.sendingInterval = 1000;
 	}
-	//
 	public HeartbeatSender (int sendingInterval)
 	{
 		this.sendingInterval = sendingInterval;
@@ -27,18 +23,17 @@ public class HeartbeatSender extends TimerTask{
 		this.run();
 	}//send msg
 	public void run() {
-					Date now; // to display current time
+					Date now;
 					while(true)
 					{
-						//code to run
+
 						try
 						{
-							long millis = System.currentTimeMillis();
-							Thread.sleep(1000 - millis % 1000);
+							Thread.sleep(sendingInterval);
 							HeartbeatReceiver HBR = new HeartbeatReceiver();
 							HBR.pitAPat();
-							now = new Date(); // initialize date
-							System.out.println("Sending msg loop " + now);// Display current time
+							now = new Date();
+							System.out.println("I am alive \n " + now);
 						}
 						catch (InterruptedException e)
 						{}

@@ -1,9 +1,7 @@
-/**
- *
- */
+
 
 /**
- * @author silva
+ * @author silva &Pavithra
  *
  */
 public class Main {
@@ -15,9 +13,8 @@ public class Main {
 		HeartbeatReceiver HBR  = new HeartbeatReceiver();
 
 		HBS.sendMessage();
+
 		HBR.checkAlive();
 
-		//ScheduledTask ST = new ScheduledTask();
-		//ST.run();
 	}
 }
