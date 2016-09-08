@@ -20,6 +20,7 @@ public class HeartbeatReceiver
 	}
 	public void checkAlive()
 	{
+		while(true){
 		System.out.println("In check alive");
 		try {
 			Thread.sleep(checkingInterval);
@@ -34,7 +35,7 @@ public class HeartbeatReceiver
 		else{
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
-		}
+		}}
 	}//checkAlive
 	public boolean pitAPat()
 	{

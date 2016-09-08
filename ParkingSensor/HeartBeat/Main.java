@@ -1,19 +1,17 @@
-/**
- * 
- */
+
 
 /**
- * @author silva
+ * @author silva &Pavithra
  *
  */
 public class Main {
 
 	public static void main(String args[])
 	{
+
 		HeartbeatSender HBS = new HeartbeatSender();
 		HeartbeatReceiver HBR  = new HeartbeatReceiver();
-		
-		HBS.sendMessage();
-		HBR.checkAlive();
+		new Thread(() -> HBS.sendMessage()).start();
+    	new Thread(() -> HBR.checkAlive()).start();
 	}
 }

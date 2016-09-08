@@ -6,11 +6,10 @@
  * @author silva
  *
  */
-package HeartBeat;
 public class FaultMonitor {
 
 	public void echo()
 	{
-		System.out.println("Beat has stopped");
+		System.out.println(" \n I'm not beating \n");
 	}
 }
