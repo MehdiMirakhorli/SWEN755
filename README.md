@@ -2,7 +2,7 @@
 Implementing Fault detection Heartbeat tactic
 
 To run the project, Download the files or clone the project. 
-Got to the folder "ParkingSensor"
+Got to the folder "SWEN755-master\ParkingSensor"
 Run the command from command line - java Main
 The program will start running.
 
