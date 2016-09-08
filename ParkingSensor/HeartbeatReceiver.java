@@ -29,11 +29,10 @@ public class HeartbeatReceiver
 			e.printStackTrace();
 		}
 		this.checkingTime = System.currentTimeMillis();
-		// this.lastUpdatedTime = updateTime();
 		//System.out.println("set updated time"+lastUpdatedTime+"\n"+"Checking time"+checkingTime+"\n"+"subt"+(checkingTime - lastUpdatedTime));
 		if (checkingTime - lastUpdatedTime < expireTime)
 		{
-			System.out.println("\n" + "beating");
+			System.out.println("Wating.. There may be a lag!");
 		}
 		else{
 			FaultMonitor FM = new FaultMonitor();
@@ -43,7 +42,7 @@ public class HeartbeatReceiver
 	}//checkAlive
 	public boolean pitAPat()
 	{
-		System.out.println("\n" + "beating");
+		System.out.println("Beating..");
 		this.updateTime();
 		return true;
 	}//pitAPat
@@ -51,7 +50,7 @@ public class HeartbeatReceiver
 	{
 		this.lastUpdatedTime = System.currentTimeMillis();
 
-		//System.out.println("update time : "+ this.lastUpdatedTime);
+		System.out.println("Last updated time : "+ this.lastUpdatedTime);
 		return this.lastUpdatedTime;
 	}//updateTime
 

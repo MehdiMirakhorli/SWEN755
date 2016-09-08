@@ -20,7 +20,7 @@ public class HeartbeatSender extends TimerTask implements Runnable{
 	public static int randgen(int min, int max) {
 	    Random ran = new Random();
 	    int Num = ran.nextInt((max - min) + 1) + min;
-	    System.out.println("Random number is " + Num + "\n");
+	    System.out.println("\n" + "Random number is " + Num );
 	    return Num;
 	}
 	public void sendMessage ()
@@ -38,7 +38,6 @@ public class HeartbeatSender extends TimerTask implements Runnable{
 				HeartbeatReceiver HBR = new HeartbeatReceiver();
 				HBR.pitAPat();
 				now = new Date();
-				//System.out.println("I am alive \n " + now);
 				a = randgen(0,3);
 			}
 			catch (InterruptedException e)

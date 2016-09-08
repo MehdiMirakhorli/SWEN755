@@ -10,6 +10,7 @@ public class Main {
 
 	public static void main(String args[]) throws InterruptedException
 	{
+		System.out.println("Fault detection Tactic");
 		Sensor HBS = new Sensor("FrontSensor");
 		SensorProcessor HBR  = new SensorProcessor();
 		Thread t1 = new Thread(() -> HBS.sendMessage());
