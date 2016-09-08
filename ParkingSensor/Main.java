@@ -10,8 +10,8 @@ public class Main {
 
 	public static void main(String args[]) throws InterruptedException
 	{
-		HeartbeatSender HBS = new HeartbeatSender();
-		HeartbeatReceiver HBR  = new HeartbeatReceiver();
+		Sensor HBS = new Sensor("FrontSensor");
+		SensorProcessor HBR  = new SensorProcessor();
 		Thread t1 = new Thread(() -> HBS.sendMessage());
 		t1.start();
 

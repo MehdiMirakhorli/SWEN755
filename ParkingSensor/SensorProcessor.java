@@ -1,16 +1,15 @@
 //authors : Pavithra and silva
 import java.io.*;
 
-public class Sensor extends HeartbeatSender{
+public class SensorProcessor extends HeartbeatReceiver{
 
 	/* int sensorID;
 	String sensorLocation;
 	int  periodicity; // checking intervals for sensor */
 
 	public String nameofsensor;
-	public Sensor(String name)
+	public SensorProcessor()
 	{
-		nameofsensor = name;
 	}
 
 }//class
