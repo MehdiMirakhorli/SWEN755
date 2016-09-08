@@ -1,7 +1,7 @@
 # SWEN755
 Implementing Fault detection Heartbeat tactic
 
-To run the project, Download the files and extract them or clone the project. 
+To run the project, Download the files and extract them or clone the project "https://github.com/SilvaMatti/SWEN755.git". 
 Got to the folder "SWEN755-master\ParkingSensor"
 Run the command from command line - java Main
 The program will start running.
