@@ -6,6 +6,7 @@ public class FaultMonitor {
 
 	public void echo()
 	{
-		System.out.println(" \n I'm not beating \n");
+		System.out.println(" \nThere is a problem!" + "\n" + "I'm not beating" +"\n");
+
 	}
 }

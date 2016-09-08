@@ -2,13 +2,23 @@
  * @author silva &Pavithra
  *
  */
+ import java.util.TimerTask;
+ import java.util.Date;
+ import java.util.Timer;
+ import java.util.*;
 public class Main {
 
-	public static void main(String args[])
+	public static void main(String args[]) throws InterruptedException
 	{
 		HeartbeatSender HBS = new HeartbeatSender();
 		HeartbeatReceiver HBR  = new HeartbeatReceiver();
-		new Thread(() -> HBS.sendMessage()).start();
-    	new Thread(() -> HBR.checkAlive()).start();
+		Thread t1 = new Thread(() -> HBS.sendMessage());
+		t1.start();
+
+		t1.join();
+		long setUpdatedTime = System.currentTimeMillis();
+    	Thread t2 = new Thread(() -> HBR.checkAlive(setUpdatedTime));
+    	t2.start();
+    	t2.join();
 	}
 }

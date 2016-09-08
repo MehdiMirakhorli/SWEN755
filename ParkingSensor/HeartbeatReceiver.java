@@ -2,7 +2,7 @@
 import java.text.SimpleDateFormat;
 import java.util.Timer;
 import java.util.TimerTask;
-public class HeartbeatReceiver implements Runnable
+public class HeartbeatReceiver
 {
 	int checkingInterval;
 	long checkingTime;
@@ -18,38 +18,42 @@ public class HeartbeatReceiver implements Runnable
 		this.checkingInterval = checkingInterval;
 		this.expireTime = expireTime;
 	}
-	public void checkAlive()
+	public void checkAlive(long lastUpdatedTime)
 	{
 		while(true){
-		System.out.println("In check alive");
+
+		//System.out.println("In check alive");
 		try {
 			Thread.sleep(checkingInterval);
 			} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		this.checkingTime = System.currentTimeMillis();
-		if (this.checkingTime - this.lastUpdatedTime > this.expireTime)
+		// this.lastUpdatedTime = updateTime();
+		//System.out.println("set updated time"+lastUpdatedTime+"\n"+"Checking time"+checkingTime+"\n"+"subt"+(checkingTime - lastUpdatedTime));
+		if (checkingTime - lastUpdatedTime < expireTime)
 		{
-			System.out.println("beating");
+			System.out.println("\n" + "beating");
 		}
 		else{
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
+			break;
 		}}
 	}//checkAlive
 	public boolean pitAPat()
 	{
-		System.out.println("pit a pat recieved");
+		System.out.println("\n" + "beating");
 		this.updateTime();
 		return true;
 	}//pitAPat
 	public long updateTime()
 	{
 		this.lastUpdatedTime = System.currentTimeMillis();
-		System.out.println("update time : "+ this.lastUpdatedTime);
+
+		//System.out.println("update time : "+ this.lastUpdatedTime);
 		return this.lastUpdatedTime;
 	}//updateTime
 
-	public void run()
-	{}
+
 }

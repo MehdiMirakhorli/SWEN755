@@ -29,20 +29,20 @@ public class HeartbeatSender extends TimerTask implements Runnable{
 	}//send msg
 	public void run() {
 		Date now;
-		//int a = randgen(0,10);
-		//while(a!=0)
-	//	{
+		int a = randgen(0,3);
+		while(a!=0)
+	{
 			try
 			{
 				Thread.sleep(sendingInterval);
 				HeartbeatReceiver HBR = new HeartbeatReceiver();
 				HBR.pitAPat();
 				now = new Date();
-				System.out.println("I am alive \n " + now);
-				//a = randgen(0,10);
+				//System.out.println("I am alive \n " + now);
+				a = randgen(0,3);
 			}
 			catch (InterruptedException e)
 			{}
-		//}// end while
+		}// end while
 	}//run
 }// class
