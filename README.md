@@ -33,3 +33,5 @@ Environment: Car moving (including parking).
 Response: detect visual warning problem, and warn driver (audio warning).
 Response measure: car switches to other warning modes (if off) in 3 seconds.
 
+The quality attribute 1 has been implemented in this assignment.
+
