@@ -2,12 +2,18 @@
  * @author Silva & Pavithra
  *
  */
+//RMI imports
+import java.rmi.registry.Registry;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+//
 import java.util.TimerTask;
 import java.util.Date;
 import java.util.Timer;
 import java.util.*;
 
-public class HeartbeatSender extends TimerTask implements Runnable{
+public class HeartbeatSender extends TimerTask implements Runnable, HeartBeat{
 	int sendingInterval;
 	public HeartbeatSender()
 	{
@@ -17,6 +23,7 @@ public class HeartbeatSender extends TimerTask implements Runnable{
 	{
 		this.sendingInterval = sendingInterval;
 	}
+
 	public static int randgen(int min, int max) {
 	    Random ran = new Random();
 	    int Num = ran.nextInt((max - min) + 1) + min;
