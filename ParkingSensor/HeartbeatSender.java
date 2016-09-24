@@ -30,11 +30,8 @@ public class HeartbeatSender extends TimerTask implements Runnable, HeartBeat{
 	    System.out.println("\n" + "Random number is " + Num );
 	    return Num;
 	}
-	public void sendMessage ()
+	public String sendMessage ()
 	{
-		this.run();
-	}//send msg
-	public void run() {
 		Date now;
 		int a = randgen(0,3);
 		while(a!=0)
@@ -50,5 +47,8 @@ public class HeartbeatSender extends TimerTask implements Runnable, HeartBeat{
 			catch (InterruptedException e)
 			{}
 		}// end while
+		return "I am totally dead";
+	}
+	public void run() {
 	}//run
 }// class

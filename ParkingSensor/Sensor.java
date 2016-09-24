@@ -22,7 +22,7 @@ public class Sensor extends HeartbeatSender{
 	    	// Bind the remote object's stub in the registry
 	    	Registry registry = LocateRegistry.getRegistry();
 	    	registry.bind("Hello", stub);
-	    	System.err.println("Server ready");
+	    	System.err.println("Parking Sensor is up...");
 	    } catch (Exception e) {
 	    	System.err.println("Server exception: " + e.toString());
 	        e.printStackTrace();
