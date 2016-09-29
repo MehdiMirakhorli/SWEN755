@@ -24,25 +24,27 @@ public class HeartbeatReceiver
 	}
 	public void checkAlive(long lastUpdatedTime)
 	{
-		while(true){
+
 
 		//System.out.println("In check alive");
 		try {
 			Thread.sleep(checkingInterval);
-			} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+
 		this.checkingTime = System.currentTimeMillis();
 		//System.out.println("set updated time"+lastUpdatedTime+"\n"+"Checking time"+checkingTime+"\n"+"subt"+(checkingTime - lastUpdatedTime));
 		if (checkingTime - lastUpdatedTime < expireTime)
 		{
-			System.out.println("Wating.. There may be a lag!");
+			System.out.println("beat recieved!");
 		}
 		else{
 			FaultMonitor FM = new FaultMonitor();
 			FM.echo();
-			break;
-		}}
+		}
+
+		}//end of try
+		catch (InterruptedException e) {
+					e.printStackTrace();
+					}//catch
 	}//checkAlive
 	public boolean pitAPat()
 	{

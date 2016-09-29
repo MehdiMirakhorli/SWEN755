@@ -24,30 +24,19 @@ public class HeartbeatSender extends TimerTask implements Runnable, HeartBeat{
 		this.sendingInterval = sendingInterval;
 	}
 
-	public static int randgen(int min, int max) {
-	    Random ran = new Random();
-	    int Num = ran.nextInt((max - min) + 1) + min;
-	    System.out.println("\n" + "Random number is " + Num );
-	    return Num;
-	}
+
 	public String sendMessage ()
 	{
-		Date now;
-		int a = randgen(0,3);
-		while(a!=0)
-	{
-			try
-			{
+		try
+		{
 				Thread.sleep(sendingInterval);
 				HeartbeatReceiver HBR = new HeartbeatReceiver();
 				HBR.pitAPat();
-				now = new Date();
-				a = randgen(0,3);
-			}
-			catch (InterruptedException e)
-			{}
-		}// end while
-		return "I am totally dead";
+		}
+		catch(InterruptedException e){}
+
+
+		return "I'm Alive";
 	}
 	public void run() {
 	}//run
