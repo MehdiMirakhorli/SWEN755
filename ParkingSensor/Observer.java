@@ -1,4 +1,4 @@
-package com.journaldev.design.observer;
+//package com.journaldev.design.observer;
 
 public interface Observer {
 
