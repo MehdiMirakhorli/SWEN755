@@ -17,11 +17,11 @@ public class RedundantSensor extends HeartbeatSender{
 
 	public static void main(String args[]) {
 		try {
-	    	HeartbeatSender obj = new HeartbeatSender();
-	    	HeartBeat stub = (HeartBeat) UnicastRemoteObject.exportObject(obj, 0);
+	    	HeartbeatSender obj1 = new HeartbeatSender();
+	    	HeartBeat stub1 = (HeartBeat) UnicastRemoteObject.exportObject(obj1, 1);
 	    	// Bind the remote object's stub in the registry
 	    	Registry registry = LocateRegistry.getRegistry();
-	    	registry.bind("Hello", stub);
+	    	registry.bind("Hell", stub1);
 	    	System.err.println("Redundant Sensor is up...");
 	    } catch (Exception e) {
 	    	System.err.println("Server exception: " + e.toString());

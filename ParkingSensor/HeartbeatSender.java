@@ -34,8 +34,6 @@ public class HeartbeatSender extends TimerTask implements Runnable, HeartBeat{
 				HBR.pitAPat();
 		}
 		catch(InterruptedException e){}
-
-
 		return "I'm Alive";
 	}
 	public void run() {

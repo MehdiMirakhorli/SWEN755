@@ -15,7 +15,7 @@ public class SensorProcessor extends HeartbeatReceiver{
 	public static int randgen(int min, int max) {
 		    Random ran = new Random();
 		    int Num = ran.nextInt((max - min) + 1) + min;
-		  //  System.out.println("\n" + "Random number is " + Num );
+		  	System.out.println("\n" + "Random number is " + Num );
 		    return Num;
 	}
 
@@ -25,23 +25,35 @@ public class SensorProcessor extends HeartbeatReceiver{
 	        try {
 	            Registry registry = LocateRegistry.getRegistry(host);
 	            HeartBeat stub = (HeartBeat) registry.lookup("Hello");
+	            HeartBeat stub1 = (HeartBeat) registry.lookup("Hell");
 	            Date now;
 				int a = randgen(0,3);
 				HeartbeatReceiver HBR = new HeartbeatReceiver();
-				long setUpdatedTime = System.currentTimeMillis();;
+				long setUpdatedTime = System.currentTimeMillis();
 				while(true)
 				{
-					if (a!=0)
+					if (a!=0 && a!=4)
 					{
 
 						String response = stub.sendMessage();
 						setUpdatedTime = System.currentTimeMillis();
 						a = randgen(0,3);
 					}
+					else if (a == 0)
+					{
+						a = 4;
+						System.out.println("Switch to Redundant Node");
+					}
 
+					else if (a == 4)
+					setUpdatedTime = System.currentTimeMillis();
+
+					String response1 = stub1.sendMessage();
 					HBR.checkAlive(setUpdatedTime);
+
+
 					//System.out.println("response: " + response);
-					now = new Date();
+//					now = new Date();
 
 				}//end while
 	        } catch (Exception e) {
