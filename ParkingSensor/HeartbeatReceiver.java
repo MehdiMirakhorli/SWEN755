@@ -32,9 +32,14 @@ public class HeartbeatReceiver
 
 		this.checkingTime = System.currentTimeMillis();
 		//System.out.println("set updated time"+lastUpdatedTime+"\n"+"Checking time"+checkingTime+"\n"+"subt"+(checkingTime - lastUpdatedTime));
-		if (checkingTime - lastUpdatedTime < expireTime)
+		if (checkingTime - lastUpdatedTime == 1000)
 		{
 			System.out.println("beat recieved!");
+		}
+		else if (checkingTime - lastUpdatedTime < expireTime)
+				{
+
+					System.out.println("waiting... There may be a lag!");
 		}
 		else{
 			FaultMonitor FM = new FaultMonitor();

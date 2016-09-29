@@ -15,7 +15,7 @@ public class SensorProcessor extends HeartbeatReceiver{
 	public static int randgen(int min, int max) {
 		    Random ran = new Random();
 		    int Num = ran.nextInt((max - min) + 1) + min;
-		    System.out.println("\n" + "Random number is " + Num );
+		  //  System.out.println("\n" + "Random number is " + Num );
 		    return Num;
 	}
 
@@ -27,24 +27,22 @@ public class SensorProcessor extends HeartbeatReceiver{
 	            HeartBeat stub = (HeartBeat) registry.lookup("Hello");
 	            Date now;
 				int a = randgen(0,3);
+				HeartbeatReceiver HBR = new HeartbeatReceiver();
+				long setUpdatedTime = System.currentTimeMillis();;
 				while(true)
 				{
 					if (a!=0)
 					{
+
 						String response = stub.sendMessage();
-						long setUpdatedTime = System.currentTimeMillis();
-						HeartbeatReceiver HBR = new HeartbeatReceiver();
-						HBR.checkAlive(setUpdatedTime);
-						System.out.println("response: " + response);
-						now = new Date();
+						setUpdatedTime = System.currentTimeMillis();
 						a = randgen(0,3);
 					}
-					else
-					{
-						FaultMonitor FM = new FaultMonitor();
-						FM.echo();
-						break;
-					}
+
+					HBR.checkAlive(setUpdatedTime);
+					//System.out.println("response: " + response);
+					now = new Date();
+
 				}//end while
 	        } catch (Exception e) {
 	            System.err.println("Client exception: " + e.toString());
