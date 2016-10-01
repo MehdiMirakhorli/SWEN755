@@ -31,10 +31,12 @@ public class SensorProcessor extends HeartbeatReceiver{
 	            Date now;
 				int a = randgen(0,3);
 				boolean activeNode = true;
-
+				//stub.sendMessage();
+				stub1.sendMessage();
 				while(activeNode)
 				{
 					try{
+
 					if (a!=0)
 					{
 						//String response = stub.sendMessage();
@@ -55,18 +57,20 @@ public class SensorProcessor extends HeartbeatReceiver{
 
 					}
 
+					try{
 					while(!activeNode)
 					{
 
 						setUpdatedTime = System.currentTimeMillis();
 						stub1.sendMessage();
 						HBR.checkAlive(setUpdatedTime);
-					}
+					}}
+					catch(Exception e){System.out.println("Failure Detected: Redundant sensor is dead!");}
 
 				}//end while
 	        }//try
 	        catch (Exception e) {
-	           System.out.println("The system is crashed! ");
+	           System.out.println("The system is crashed!\nThere is no Backup option available!\nSwitch to manual mode!");
 	        }//catch
     }//main
 }//class
