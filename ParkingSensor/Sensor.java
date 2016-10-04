@@ -15,14 +15,11 @@ import java.util.List;
 public class Sensor extends HeartbeatSender {
 
 	public String nameofsensor;
-	/*public List<Observer> observers;
-		public String message;
-		public boolean changed;
-	private final Object MUTEX= new Object();*/
+
 	public Sensor(String name)
 	{
 		nameofsensor = name;
-		//this.observers=new ArrayList<>();
+
 	}
 
 	public static void main(String args[]) {
