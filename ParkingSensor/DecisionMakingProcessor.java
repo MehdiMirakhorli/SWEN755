@@ -4,11 +4,10 @@ import java.util.*;
 //RMI imports
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-//
-public class SensorProcessor extends HeartbeatReceiver{
 
-	public String nameofsensor;
-	public SensorProcessor()
+public class DecisionMakingProcessor extends HeartbeatReceiver{
+
+	public DecisionMakingProcessor()
 	{
 	}
 	// Random nubmer generator for fault injection
@@ -42,7 +41,7 @@ public class SensorProcessor extends HeartbeatReceiver{
 						a = randgen(0,3);
 					}}
 					catch(Exception e){
-						System.out.println("Failure Detected: Active sensor is dead!\n Switching to redundant node!");
+						System.out.println("Failure Detected: Active Obstacle Detector is dead!\n Switching to redundant node!");
 						activeNode=false;
 					}
 					try{
@@ -52,13 +51,13 @@ public class SensorProcessor extends HeartbeatReceiver{
 						stub1.sendMessage();
 						HBR.checkAlive(setUpdatedTime);
 					}}
-					catch(Exception e){System.out.println("Failure Detected: Redundant sensor is dead!");
+					catch(Exception e){System.out.println("Failure Detected: Redundant Obstacle Detector is dead!");
 					}
 				}//end while
 	        }//try
 	        catch (Exception e) {
 
-	         System.out.println("\nThe Backup sensor failed!\nSwitch to manual mode!\nNot safe to run without recovery");
+	         System.out.println("\nThe Backup Obstactle Detector failed!\nSwitch to manual mode!\nNot safe to run without recovery");
 
 	        }//catch
     }//main

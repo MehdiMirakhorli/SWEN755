@@ -4,16 +4,14 @@ import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-//
-import java.io.*;
 
-public class RedundantSensor extends HeartbeatSender{
+public class RedundantObstacleDetector extends HeartbeatSender{
 
-	public String nameofsensor;
+	public String nameofROD;
 
-	public RedundantSensor(String name)
+	public RedundantObstacleDetector(String name)
 	{
-		nameofsensor = name;
+		nameofROD = name;
 	}
 
 	public static void main(String args[]) {
@@ -23,7 +21,7 @@ public class RedundantSensor extends HeartbeatSender{
 	    	// Bind the remote object's stub in the registry
 	    	Registry registry = LocateRegistry.getRegistry();
 	    	registry.bind("Hell", stub1);
-	    	System.err.println("Redundant Sensor is up...");
+	    	System.err.println("Redundant Obstacle Detector is up...");
 
 	    } catch (Exception e) {
 	    	System.err.println("Server exception: " + e.toString());

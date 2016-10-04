@@ -1,27 +1,19 @@
 //authors : Pavithra and silva
-// observer package
-//package com.journaldev.design.observer;
+
 //RMI imports
 import java.rmi.registry.Registry;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-//
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+public class ObstacleDetector extends HeartbeatSender {
 
-public class Sensor extends HeartbeatSender {
+	public String nameofOD;
 
-	public String nameofsensor;
-
-	public Sensor(String name)
+	public ObstacleDetector(String name)
 	{
-		nameofsensor = name;
-
+		nameofOD = name;
 	}
-
 	public static void main(String args[]) {
 		try {
 	    	HeartbeatSender obj = new HeartbeatSender();
@@ -29,7 +21,7 @@ public class Sensor extends HeartbeatSender {
 	    	// Bind the remote object's stub in the registry
 	    	Registry registry = LocateRegistry.getRegistry();
 	    	registry.bind("Hello", stub);
-	    	System.err.println("Parking Sensor is up...");
+	    	System.err.println("Obstacle Detector is up...");
 	    } catch (Exception e) {
 	    	System.err.println("Server exception: " + e.toString());
 	        e.printStackTrace();
