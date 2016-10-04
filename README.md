@@ -1,10 +1,10 @@
 # SWEN755
 ==============================================================
-
+In order to implement the architectural tactic, we used Java's RMI (Remote Method Invocation).
 Running the code
 -----------------
 To run the project, Download the files and extract them or clone the project "https://github.com/SilvaMatti/SWEN755.git". 
-Got to the folder "SWEN755-master\ParkingSensor"
+Go to the folder "SWEN755-master\ParkingSensor"
 Run the command from command line 
 1. start rmiregistry
 2. start java -Djava.rmi.server.codebase=file:ParkingSensor/ ObstacleDetector
