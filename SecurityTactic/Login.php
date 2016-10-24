@@ -20,7 +20,9 @@
       if($count == 1) {
          //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
-         
+         $_SESSION['start'] = time(); // Taking now logged in time.
+            // Ending a session in 30 minutes from the starting time.
+            $_SESSION['expire'] = $_SESSION['start'] + (10);
          header("location: welcome.php");
       }else {
          $error = "Your Login Name or Password is invalid";

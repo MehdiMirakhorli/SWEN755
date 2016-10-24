@@ -1,7 +1,27 @@
 <?php
    include('session.php');
+   
+   $page = $_SERVER['PHP_SELF'];
+   $sec = "2";
+   header("Refresh: $sec; url=$page");
+   echo "BLABLA";
+   
+   if (!isset($_SESSION['login_user'])) {
+        echo "Please Login again";
+        echo "<a href='http://localhost/SecurityTactic/login.php'>Click Here to Login</a>";
+    }
+    else {
+        $now = time(); // Checking the time now when home page starts.
+
+        if ($now > $_SESSION['expire']) {
+            session_destroy();
+            header ("location:expire.php");
+        }
+        else { //Starting this else one [else1]
 ?>
-<html>
+
+            <!-- From here all HTML coding can be done -->
+   <html>
    
    <head>
       <title>Welcome </title>
@@ -23,3 +43,7 @@
    </body>
    
 </html>
+<?php
+        }
+    }
+?>
