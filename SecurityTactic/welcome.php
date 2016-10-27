@@ -5,12 +5,10 @@
    $sec = "59";
    header("Refresh: $sec; url=$page");
    echo session_id();
-   //echo session_regenerate_id();
    $role =  $_SESSION['role'];
    echo nl2br("\n role type: ") ;
    echo $role;
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-         //session_register("myusername");
          if ($role == "admin")
          header("location: addUsers.php");
 		 else echo  nl2br("\nYou are not authorized to perform this activity ");
@@ -29,7 +27,6 @@
         else { //Starting this else one [else1]
 ?>
 
-            <!-- From here all HTML coding can be done -->
    <html>
    
    <head>
@@ -55,7 +52,6 @@
    
 </html>
 <?php
-	 // echo "<h2><a href = 'addUsers.php'>Add users</a></h2>";
         }
     }
 ?>
