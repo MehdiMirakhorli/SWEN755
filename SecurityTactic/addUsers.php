@@ -1,5 +1,6 @@
 <?php
    include('session.php');
+   echo session_id();
 ?>
 <html>
 

@@ -1,7 +1,11 @@
 <?php
    include('Config.php');
+   
    session_start();
-    $user_check = $_SESSION['login_user'];
+   
+   session_regenerate_id();
+   
+   $user_check = $_SESSION['login_user'];
    
    $ses_sql = mysqli_query($db,"select username from all_users where username = '$user_check' ");
    

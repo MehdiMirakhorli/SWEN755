@@ -2,9 +2,19 @@
    include('session.php');
    
    $page = $_SERVER['PHP_SELF'];
-   $sec = "2";
+   $sec = "59";
    header("Refresh: $sec; url=$page");
-   echo "BLABLA";
+   echo session_id();
+   //echo session_regenerate_id();
+   $role =  $_SESSION['role'];
+   echo nl2br("\n role type: ") ;
+   echo $role;
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+         //session_register("myusername");
+         if ($role == "admin")
+         header("location: addUsers.php");
+		 else echo  nl2br("\nYou are not authorized to perform this activity ");
+   }
    
    if (!isset($_SESSION['login_user'])) {
         echo "Please Login again";
@@ -12,7 +22,6 @@
     }
     else {
         $now = time(); // Checking the time now when home page starts.
-
         if ($now > $_SESSION['expire']) {
             session_destroy();
             header ("location:expire.php");
@@ -36,14 +45,17 @@
 	  <!-- adding some content for all users -->
 	  <h3>Status of Self driving car components</h3>
 	  <!-- adding some content for admin only -->
-	  <?php
-	  if ($login_session == "admin")
-	  echo "<h2><a href = 'addUsers.php'>Add users</a></h2>"
-	  ?>
+	  <div style = "margin:30px">  
+	   <form action = "" method = "post">
+		  <input type = "submit" value = " Add users"/><br />
+	   </form> 
+	   <!-- <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php echo $error; ?></div>	 -->
+      </div>
    </body>
    
 </html>
 <?php
+	 // echo "<h2><a href = 'addUsers.php'>Add users</a></h2>";
         }
     }
 ?>
